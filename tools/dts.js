@@ -22,7 +22,7 @@ var regConst = /(\/\*(\*(?!\/)|[^*])*\*\/\s*)?(export\s+)?(default\s+|declare\s+
 var regExport = /(\/\*(\*(?!\/)|[^*])*\*\/\s*)?(export\s+)(default\s+([0-9a-zA-Z_]+)\s*,?)?(\s*{([^}]+)})?\s*;/gm;
 
 function enqueue(queue, filename, exports) {
-    if (queue.find(function(v) {
+    if (queue.find(function (v) {
         return v.filename == filename;
     })) {
         return;
@@ -67,7 +67,7 @@ function parseFrom(from, currentFileName, baseDir, projDir) {
             importFileName = path.resolve(projDir, 'node_modules', from, 'lib/index.d.ts');
         }
         if (!fs.existsSync(importFileName)) {
-            throw new Error(`Can\t resolve package name ${from} in file ${currentFileName}`);
+            throw new Error(`Can\t resolve package name ${from} in file ${currentFileName} with import file name as ${importFileName}`);
         }
     }
     return importFileName;
@@ -137,7 +137,7 @@ function parseEnum(content, elements) {
     var matches;
     while (matches = regEnum.exec(content)) {
         var result = parsePair(content, matches.index + matches[0].length, '{', '}', 1);
-        var enumText = (matches[1] || '') + (matches[5] || '') + 'enum '+ namePlaceholder + ' {' + result[0];
+        var enumText = (matches[1] || '') + (matches[5] || '') + 'enum ' + namePlaceholder + ' {' + result[0];
         var name = getName(matches, 6);
         appendText(elements, name, enumText);
         content = result[1];
@@ -253,7 +253,7 @@ function output(filename, library, queue) {
         var exports = queue[i].exports;
         var elements = queue[i].elements;
         if (exports) {
-            for (var name in exports){
+            for (var name in exports) {
                 var alias = exports[name];
                 var texts = null;
                 if (elements[name]) {

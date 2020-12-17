@@ -8,8 +8,7 @@ yarn-error.log*
 # Dependency directories
 node_modules/
 
-# Distribution
-dist/
+
 
 *.g.ts
 /package-lock.json
