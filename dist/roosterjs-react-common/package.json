@@ -1,0 +1,20 @@
+{
+    "name": "roosterjs-react-common",
+    "description": "Common library for roosterjs-react",
+    "dependencies": {
+        "roosterjs-editor-plugins": "^7.16.0"
+    },
+    "peerDependencies": {
+        "office-ui-fabric-react": ">=5.9.0",
+        "react": ">=15.3.2",
+        "react-dom": ">=15.3.2"
+    },
+    "main": "./lib/index.js",
+    "version": "0.0.72",
+    "typings": "./lib/index.d.ts",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/roosterjs-react"
+    }
+}

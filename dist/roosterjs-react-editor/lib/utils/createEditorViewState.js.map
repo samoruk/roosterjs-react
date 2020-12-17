@@ -1,0 +1,1 @@
+{"version":3,"file":"createEditorViewState.js","sourceRoot":"","sources":["../../../../packages/roosterjs-react-editor/lib/utils/createEditorViewState.ts"],"names":[],"mappings":";;AACA,qEAA8E;AAE9E,SAAwB,qBAAqB,CAAC,cAAuB,EAAE,OAA6B;IAChG,OAAO;QACH,OAAO,EAAE,wCAAa,CAAC,YAAY,CAAC,cAAc,EAAE,OAAO,CAAC,IAAI,EAAE;QAClE,OAAO,EAAE,KAAK;KACjB,CAAC;AACN,CAAC;AALD,wCAKC"}

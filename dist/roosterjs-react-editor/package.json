@@ -1,0 +1,15 @@
+{
+    "name": "roosterjs-react-editor",
+    "description": "React wrapper for roosterjs editor",
+    "dependencies": {
+        "roosterjs-react-common": "0.0.72"
+    },
+    "main": "./lib/index.js",
+    "version": "0.0.72",
+    "typings": "./lib/index.d.ts",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/roosterjs-react"
+    }
+}
