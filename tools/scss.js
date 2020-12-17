@@ -4,17 +4,17 @@ const path = require('path');
 var scssPath = path.resolve(__dirname, '..', 'packages/**/*.scss');
 const files = glob.sync(scssPath);
 
-const sass = require('node-sass');
+const sass = require('sass');
 const fs = require('fs');
 const postcss = require('postcss');
 const autoprefixer = require('autoprefixer')({ browsers: ['> 1%', 'last 2 versions', 'ie >= 11'] });
 const modules = require('postcss-modules')({
     getJSON,
     generateScopedName
-  });
+});
 const _fileNameToClassMap = {};
 
-files.forEach(function(fileName) {
+files.forEach(function (fileName) {
     fileName = path.resolve(fileName);
 
     sass.render(
@@ -34,7 +34,7 @@ files.forEach(function(fileName) {
                     });
             }
         }
-    );    
+    );
 });
 
 function createTypeScriptModule(fileName, css) {
@@ -42,15 +42,15 @@ function createTypeScriptModule(fileName, css) {
 
     // Create a source file.
     const source = [
-      `/* tslint:disable */`,
-      `import { loadStyles } from \'@microsoft/load-themed-styles\';`,
-      `loadStyles(${JSON.stringify(splitStyles(css))});`
+        `/* tslint:disable */`,
+        `import { loadStyles } from \'@microsoft/load-themed-styles\';`,
+        `loadStyles(${JSON.stringify(splitStyles(css))});`
     ];
 
     const map = _fileNameToClassMap[fileName];
 
     for (let prop in map) {
-      source.push(`export const ${prop} = "${map[prop]}";`);
+        source.push(`export const ${prop} = "${map[prop]}";`);
     }
 
     return source.join('\n');
